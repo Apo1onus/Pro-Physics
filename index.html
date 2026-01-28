@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Физика: Углублённый уровень 10-11 класс | Подготовка по ФРП</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0400ff 0%, #0400ff 100%);
+            color: white;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 4, 255, 0.2);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 2rem;
+            opacity: 0.9;
+            margin-top: 30px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-block: auto;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .nav-btn.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Главная страница */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #a9f9ff 100%);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            color: #0400ff;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .philosophy-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 4, 255, 0.2);
+            border: 1px solid #ffebee;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 4, 255, 0.2);
+        }
+        
+        .philosophy-card h3 {
+            color: #0400ff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .philosophy-card h3 i {
+            margin-right: 10px;
+            color: #0400ff;
+        }
+        
+        .philosophy-card p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .philosophy-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .philosophy-card li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        /* Стили для уникальности */
+        .expert-profile {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid #0400ff;
+        }
+        
+        .expert-profile h4 {
+            color: #0400ff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .expert-profile h4 i {
+            margin-right: 10px;
+        }
+        
+        .expert-profile p {
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .expert-profile strong {
+            color: #0400ff;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(194, 24, 91, 0.1);
+            border: 1px solid #aef7f7;
+        }
+        
+        .section h2 {
+            color: #0400ff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #7ef6ff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section h2 i {
+            margin-right: 10px;
+            color: #0400ff;
+        }
+        
+        /* Структура классов и глав */
+        .grade-container {
+            margin-bottom: 40px;
+        }
+        
+        .grade-header {
+            background: linear-gradient(to right, #0400ff, #0400ff);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .grade-header h3 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .grade-header h3 i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .hours-badge {
+            background-color: rgba(255, 255, 255, 0.25);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Главы */
+        .chapter {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #d4fffd;
+            border-radius: 10px;
+            border-left: 5px solid #0400ff;
+        }
+        
+        .chapter-header {
+            margin-bottom: 20px;
+        }
+        
+        .chapter-title {
+            font-size: 1.5rem;
+            color: #0400ff;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chapter-title i {
+            margin-right: 10px;
+            color: #0400ff;
+        }
+        
+        /* Подглавы */
+        .subchapter {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #7ef6ff;
+        }
+        
+        .subchapter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .subchapter-title {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            flex: 1;
+        }
+        
+        .subchapter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .topic-btn {
+            padding: 8px 16px;
+            background-color: #c6fbff;
+            color: #0400ff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid #7ef6ff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 110px;
+        }
+        
+        .topic-btn:hover {
+            background-color: #0400ff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(17, 0, 255, 0.2);
+        }
+        
+        .topic-btn i {
+            margin-right: 8px;
+        }
+        
+        /* Презентации */
+        .presentations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .presentation-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #7ef6ff;
+        }
+        
+        .presentation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .presentation-img {
+            height: 200px;
+            background-color: #7ef6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0400ff;
+            font-size: 4rem;
+        }
+        
+        .presentation-content {
+            padding: 20px;
+        }
+        
+        .presentation-content h3 {
+            color: #0400ff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .presentation-content p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .presentation-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .presentation-link {
+            padding: 8px 15px;
+            background-color: #7ef6ff;
+            color: #0400ff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .presentation-link:hover {
+            background-color: #0400ff;
+            color: white;
+        }
+        
+        .presentation-link i {
+            margin-right: 6px;
+        }
+        
+        /* Страница ФРП */
+        .frp-content {
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #aaf8f4;
+            border-radius: 8px;
+            border: 1px solid #7ef6ff;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .frp-content h3 {
+            color: #0400ff;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #7ef6ff;
+        }
+        
+        .frp-content h4 {
+            color: #0400ff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .frp-content p {
+            margin-bottom: 15px;
+        }
+        
+        .frp-content ul, .frp-content ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .frp-content li {
+            margin-bottom: 8px;
+        }
+        
+        /* Страница Олимпиад */
+        .olympiad-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .olympiad-card {
+            background-color: #e1fdff;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #7ef6ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .olympiad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .olympiad-card h3 {
+            color: #0400ff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .olympiad-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .olympiad-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .olympiad-link {
+            padding: 8px 15px;
+            background-color: #ffffff;
+            color: #0400ff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            border: 2px solid #0400ff;
+        }
+        
+        .olympiad-link:hover {
+            background-color: #0400ff;
+            color: white;
+            border: 2px solid white;
+
+        }
+        
+        .olympiad-link i {
+            margin-right: 6px;
+        }
+        
+        /* Страница Научно-исследовательской деятельности */
+        .research-card {
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #4CAF50;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 25px;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-card h3 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .research-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .research-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .research-link {
+            padding: 8px 15px;
+            background-color: #c8e6c9;
+            color: #2E7D32;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .research-link:hover {
+            background-color: #2E7D32;
+            color: white;
+        }
+        
+        .research-link i {
+            margin-right: 6px;
+        }
+        
+        /* Кнопки для скачивания */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .download-btn:hover {
+            background-color: #388E3C;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-btn i {
+            margin-right: 10px;
+        }
+        
+        /* Футер с контактами */
+        .footer-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #aef7f7;
+        }
+        
+        .contact-block {
+            padding: 15px;
+        }
+        
+        .contact-block h4 {
+            color: #0400ff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-block h4 i {
+            margin-right: 10px;
+            color: #0400ff;
+        }
+        
+        .contact-block p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .contact-block a {
+            color: #0400ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-block a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.95rem;
+            border-top: 1px solid #7ef6ff;
+        }
+        
+        /* Стили для скрытых страниц */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .nav-buttons {
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-buttons {
+                margin-top: 20px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-btn {
+                flex: 1;
+                text-align: center;
+                min-width: 120px;
+                font-size: 0.85rem;
+                padding: 10px 12px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .presentations-grid, .olympiad-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-contacts {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 15px 0;
+            }
+            
+            .logo h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .grade-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .hours-badge {
+                margin-top: 10px;
+            }
+            
+            .subchapter-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .subchapter-buttons {
+                margin-top: 15px;
+                width: 100%;
+            }
+            
+            .topic-btn {
+                flex: 1;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .nav-btn i {
+                margin-right: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo p {
+                font-size: 0.9rem;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .philosophy-card {
+                padding: 20px;
+            }
+            
+            .subchapter-buttons {
+                flex-direction: column;
+            }
+            
+            .topic-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Стили для интерактивных элементов */
+        .topic-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .topic-btn.disabled:hover {
+            background-color: #7ef6ff;
+            color: #0400ff;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Стили для текста ФРП */
+        .frp-section { 
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #7ef6ff;
+        }
+        
+        .frp-section:last-child {
+            border-bottom: none;
+        }
+        
+        .frp-section h3 {
+            color: #0400ff;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .frp-section h4 {
+            color: #0400ff;
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+        }
+        
+        .frp-section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .frp-section ul, .frp-section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .frp-section li {
+            margin-bottom: 5px;
+        }
+        
+        /* GitHub блок для презентаций */
+        .github-presentation {
+            border: 2px dashed #6bdcff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            background-color: #fff9f9;
+            text-align: center;
+        }
+        
+        .github-presentation h3 {
+            color: #0400ff;
+            margin-bottom: 15px;
+        }
+        
+        .github-presentation p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        
+        .github-btn:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+        }
+        
+        .github-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo" style="display: flex; align-items: center;">
+                    <img src="logo.png" alt="Logo" style="width: 75px; height: auto; margin-right: 10px;">
+                    <div>
+                        <h1 style="margin: 0; line-height: 1.1;">Физика: углублённый уровень</h1>
+                        <p style="margin: 0; opacity: 0.8;">Полная подготовка для 10-11 классов по ФРП</p>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <a href="#" class="nav-btn active" data-page="home"><i class="fas fa-home"></i> Главная</a>
+                    <a href="#" class="nav-btn" data-page="topics"><i class="fas fa-book-open"></i> Темы</a>
+                    <!-- <a href="#" class="nav-btn" data-page="frp"><i class="fas fa-file-alt"></i> ФРП</a> -->
+                    <a href="#" class="nav-btn" data-page="olympiads"><i class="fas fa-trophy"></i> Олимпиады</a>
+                    <!-- <a href="#" class="nav-btn" data-page="research"><i class="fas fa-microscope"></i> Научная деятельность</a> -->
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Главная страница -->
+        <div id="home-page" class="page active">
+            <div class="hero">
+                <h1>Физика: Углублённый уровень 10-11 класс</h1>
+                <p>Полноценная подготовка по Федеральной рабочей программе. Индивидуальный подход, презентации по каждой теме, подготовка к олимпиадам и научно-исследовательской деятельности.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-eye"></i> Философия проекта</h2>
+                <p style="margin-bottom: 25px; font-size: 1.1rem;">Наш сайт создан с целью систематизации знаний по физике углублённого уровня для 10-11 классов в соответствии с Федеральной рабочей программой (ФРП). Мы стремимся сделать изучение физики доступным, интересным и эффективным.</p>
+                
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-bullseye"></i> Цели проекта</h3>
+                        <ul>
+                            <li>Предоставить полный охват тем ФРП по физике углублённого уровня</li>
+                            <li>Создать интерактивные презентации для каждой темы</li>
+                            <li>Обеспечить подготовку к перечневым олимпиадам</li>
+                            <li>Развивать научно-исследовательские навыки учащихся</li>
+                            <li>Обеспечить индивидуальный подход к каждому ученику</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-chart-line"></i> Преимущества репетиторства</h3>
+                        <ul>
+                            <li><strong>Индивидуальный подход:</strong> Учёт особенностей восприятия каждого ученика</li>
+                            <li><strong>Гибкий график:</strong> Занятия в удобное время</li>
+                            <li><strong>Системность:</strong> Чёткое следование ФРП</li>
+                            <li><strong>Глубина изучения:</strong> Углублённое рассмотрение тем</li>
+                            <li><strong>Практическая направленность:</strong> Решение задач разного уровня сложности</li>
+                            <li><strong>Подготовка к экзаменам:</strong> ЕГЭ, ДВИ, олимпиады</li>
+                            <li><strong>Научная деятельность:</strong> Помощь в подготовке исследовательских работ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-gem"></i> Чем мы уникальны</h2>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-laptop-code"></i> Специальная платформа для подготовки</h3>
+                        <ul>
+                            <li><strong>Удобная структура:</strong> Весь материал организован по разделам ФРП, что позволяет легко находить нужные темы</li>
+                            <li><strong>Доступность 24/7:</strong> Все материалы доступны в любое время с любого устройства</li>
+                            <li><strong>Интерактивность:</strong> К каждой теме прилагаются интерактивные презентации и задачи</li>
+                            <li><strong>Адаптивный дизайн:</strong> Сайт работает на компьютерах, планшетах и смартфонах</li>
+                            <li>Можно заниматься самостоятельно</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="philosophy-card">
+                        <h3><i class="fas fa-ruler-combined"></i> Работаем строго по ФРП</h3>
+                        <p><strong>ФРП — Федеральная рабочая программа</strong> — это официальный документ, определяющий содержание образования по физике на углублённом уровне для 10-11 классов.</p>
+                        <ul>
+                            <li><strong>Никаких неожиданностей на экзамене:</strong> Мы изучаем только то, что действительно потребуется на ЕГЭ и олимпиадах</li>
+                            <li><strong>Ничего лишнего:</strong> Фокус на ключевых концепциях без рассеивания внимания</li>
+                            <li><strong>Системный подход:</strong> Последовательное изучение тем в соответствии с программой</li>
+                            <li><strong>Экономия времени:</strong> Не тратим время на материал, выходящий за рамки ФРП</li>
+                        </ul>
+                    </div>
+                    
+                    <!--<div class="philosophy-card">
+                        <h3><i class="fas fa-user-tie"></i> Экспертный состав</h3>
+                        <div class="expert-profile">
+                            <h4><i class="fas fa-user-graduate"></i> Автор программы:</h4>
+                            <p><strong>Научный сотрудник СИБГУ им. Решетнёва</strong><br>
+                            Опыт разработки учебных программ, участие в научных исследованиях в области физики. Знание современных требований к образованию.</p>
+                        </div>
+                        <div class="expert-profile">
+                            <h4><i class="fas fa-user-md"></i> Репетитор:</h4>
+                            <p><strong>Кандидат физико-математических наук</strong><br>
+                            Московский факультет ИКИ РАН (Институт космических исследований РАН).<br>
+                            • Более 10 лет преподавательского опыта<br>
+                            • Автор научных публикаций в рецензируемых журналах<br>
+                            • Подготовка к олимпиадам всех уровней<br>
+                            <br>
+                            </p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница с темами -->
+        <div id="topics-page" class="page">
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> Программа углублённого курса физики</h2>
+                
+                <!-- 10 класс -->
+                <div class="grade-container">
+                    <div class="grade-header">
+                        <h3><i class="fas fa-graduation-cap"></i> 10 класс</h3>
+                        <div class="hours-badge">170 часов (5 часов в неделю)</div>
+                    </div>
+                    
+                    <!-- Глава 2: Механика -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-cogs"></i> Раздел 2. Механика</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 1. Кинематика</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/mechanics/kinematics/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/mechanics/kinematics/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 2. Динамика</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/mechanics/dynamics/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/mechanics/dynamics/theory1.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория 2</a>
+                                    <a href="presentations/10_class/mechanics/dynamics/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 3. Статика твёрдого тела</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/mechanics/statics/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/mechanics/statics/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 4. Законы сохранения в механике</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/mechanics/conservation_laws/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/mechanics/conservation_laws/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 3: Молекулярная физика и термодинамика -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-temperature-high"></i> Раздел 3. Молекулярная физика и термодинамика</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 1. Основы молекулярно-кинетической теории</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/molecular_physics/mkt/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/molecular_physics/mkt/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 2. Термодинамика. Тепловые машины</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/molecular_physics/thermodynamics/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/molecular_physics/thermodynamics/practice1.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи 1</a>
+                                    <a href="presentations/10_class/molecular_physics/thermodynamics/practice2.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи 2</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 3. Агрегатные состояния вещества. Фазовые переходы</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/molecular_physics/phase_transitions/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/molecular_physics/phase_transitions/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 4: Электродинамика (часть 1) -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-bolt"></i> Раздел 4. Электродинамика (часть 1)</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 1. Электрическое поле</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/electrodynamics/electric_field/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/electrodynamics/electric_field/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 2. Постоянный электрический ток</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/electrodynamics/dc_current/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/electrodynamics/dc_current/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 3. Токи в различных средах</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/10_class/electrodynamics/currents_in_media/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/10_class/electrodynamics/currents_in_media/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 11 класс -->
+                <div class="grade-container">
+                    <div class="grade-header">
+                        <h3><i class="fas fa-graduation-cap"></i> 11 класс</h3>
+                        <div class="hours-badge">170 часов (5 часов в неделю)</div>
+                    </div>
+                    
+                    <!-- Глава 4: Электродинамика (часть 2) -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-bolt"></i> Раздел 4. Электродинамика (часть 2)</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 4. Магнитное поле</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/electrodynamics/magnetic_field/theory1.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория 1</a>
+                                    <a href="presentations/11_class/electrodynamics/magnetic_field/theory2.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория 2</a>
+                                    <a href="presentations/11_class/electrodynamics/magnetic_field/practice1.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи 1</a>
+                                    <a href="presentations/11_class/electrodynamics/magnetic_field/practice2.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи 2</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 5. Электромагнитная индукция</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/electrodynamics/electromagnetic_induction/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/electrodynamics/electromagnetic_induction/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 5: Колебания и волны -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-wave-square"></i> Раздел 5. Колебания и волны</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 1. Механические колебания</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/waves/mechanical_oscillations/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/waves/mechanical_oscillations/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 2. Электромагнитные колебания</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/waves/electromagnetic_oscillations/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/waves/electromagnetic_oscillations/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 3. Механические и электромагнитные волны</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/waves/waves/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/waves/waves/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 4. Оптика</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/waves/optics/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/waves/optics/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 6: Основы специальной теории относительности -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-rocket"></i> Раздел 6. Основы специальной теории относительности</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Основы специальной теории относительности</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/relativity/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/relativity/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 7: Квантовая физика -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-atom"></i> Раздел 7. Квантовая физика</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 1. Корпускулярно/волновой дуализм</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/quantum/dualism/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/quantum/dualism/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 2. Физика атома</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/quantum/atom/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/quantum/atom/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Тема 3. Физика атомного ядра и элементарных частиц</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/quantum/nuclear/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/quantum/nuclear/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Глава 8: Элементы астрономии и астрофизики -->
+                    <div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-star"></i> Раздел 8. Элементы астрономии и астрофизики</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Элементы астрономии и астрофизики</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/11_class/astronomy/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/11_class/astronomy/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="development-notice" style="
+                        background-color: #fff3cd; 
+                        color: #856404; 
+                        padding: 10px 15px; 
+                        border: 1px solid #ffeeba; 
+                        border-radius: 5px; 
+                        margin-bottom: 15px;
+                    ">
+                        <strong>Внимание:</strong> Этот раздел в стадии разработки.
+                    </div>
+                    
+                    <!-- Обобщающее повторение -->
+                    <!--<div class="chapter">
+                        <div class="chapter-header">
+                            <div class="chapter-title"><i class="fas fa-sync-alt"></i> Обобщающее повторение</div>
+                        </div>
+                        
+                        <div class="subchapter">
+                            <div class="subchapter-header">
+                                <div class="subchapter-title">Обобщающее повторение</div>
+                                <div class="subchapter-buttons">
+                                    <a href="presentations/review/theory.html" class="topic-btn" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Теория</a>
+                                    <a href="presentations/review/practice.html" class="topic-btn" target="_blank"><i class="fas fa-tasks"></i> Задачи</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница ФРП -->
+        <div id="frp-page" class="page">
+            <div class="section">
+                <h2><i class="fas fa-file-alt"></i> Федеральная рабочая программа по физике</h2>
+                <p>Углублённый уровень для 10-11 классов образовательных организаций</p>
+                
+                <div class="frp-content" id="frp-full-content">
+                    <!-- Полный текст ФРП будет вставлен через JavaScript -->
+                </div>
+                
+                <button class="download-btn" id="download-frp-pdf"><i class="fas fa-file-pdf"></i> Скачать ФРП в формате PDF</button>
+            </div>
+        </div>
+        
+        <!-- Страница Олимпиад -->
+        <div id="olympiads-page" class="page">
+            <div class="section">
+                <h2><i class="fas fa-trophy"></i> Перечневые олимпиады по физике</h2>
+                <p style="margin-bottom: 25px;">Ниже представлены 15 перечневых олимпиад по физике, которые дают льготы при поступлении в вузы.</p>
+                
+                <div class="olympiad-list" id="olympiads-container">
+                    <!-- Список олимпиад будет вставлен через JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Страница Научно-исследовательской деятельности -->
+        <div id="research-page" class="page">
+            <div class="section">
+                <h2><i class="fas fa-microscope"></i> Научно-исследовательская деятельность / ИП</h2>
+                <p style="margin-bottom: 25px;">Форумы, выставки, конференции:</p>
+                
+                <div class="research-card">
+                    <h3>Международный конкурс научно-исследовательских работ «Творцы науки»</h3>
+                    <p>Конкурс проводится для учащихся 1-11 классов, студентов и педагогов. На конкурс принимаются исследовательские работы в различных областях науки: физика, математика, химия, биология, информатика, экология, история, филология и другие. Работы оцениваются экспертной комиссией, победители получают дипломы и возможность публикации своих исследований.</p>
+                    <div class="research-links">
+                        <a href="https://digitalnauka.ru/mknr_tvortsynauki_2/" target="_blank" class="research-link"><i class="fas fa-external-link-alt"></i> Официальный сайт конкурса</a>
+                    </div>
+                </div>
+                
+                <div id="research-container">
+                    <!-- Дополнительные мероприятия будут добавлены через JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Футер с контактами -->
+        <div class="footer-contacts">
+            <!--<div class="contact-block">
+                <h4><i class="fas fa-user-graduate"></i> Репетитор по ИП</h4>
+                <p>Индивидуальные проекты, научно-исследовательские работы</p>
+                <p>Email: <a href="mailto:siigal2007@gmail.com">siigal2007@gmail.com</a></p>
+            </div>-->
+            
+            <div class="contact-block">
+                <h4><i class="fas fa-atom"></i> Автор курса и репетитор по физике</h4>
+                <p>Автор презентаций и материалов курса</p>
+                <p>Email: <a href="mailto:zheka.karpov.70@mail.ru">zheka.karpov.70@mail.ru</a></p>
+            </div>
+            
+            <div class="contact-block">
+                <h4><i class="fas fa-laptop-code"></i> Репетитор по математике, информатике, информационной безопасности</h4>
+                <p>Также обучение программам офиса</p>
+                <p>Телеграмм: <a href="https://t.me/AnthonyWolfhound">@AnthonyWolfhound</a></p>
+            </div>
+            
+            <!--<div class="contact-block">
+                <h4><i class="fas fa-laptop-code"></i> Сайт-поздравление на День рождения</h4>
+                <p>Неожиданный подарок на День рождения</p>
+                <p>Email: <a href="mailto:siigal2007@gmail.com">siigal2007@gmail.com</a></p>
+            </div>-->
+            
+            <div class="contact-block">
+                <h4><i class="fas fa-laptop-code"></i> Рандомайзер для учителя</h4>
+                <p>определит, какой ученик пойдёт к доске</p>
+                <p>Email: <a href="https://igorcim.github.io/teacher-randomizers/">https://igorcim.github.io/teacher-randomizers/</a></p>
+            </div>
+            <!-- Блок репетитора по математике удален -->
+        </div>
+        
+        <footer>
+            <p>© 2026-2027 Подготовка по физике. Углублённый уровень для 10-11 классов.</p>
+            <p>Материалы основаны на Федеральной рабочей программе по физике (углублённый уровень).</p>
+        </footer>
+    </div>
+
+    <script>
+        // Данные для олимпиад
+        const olympiads = [
+            {
+                name: "Всероссийская олимпиада школьников по физике",
+                description: "Самая престижная олимпиада в России. Состоит из четырех этапов: школьный, муниципальный, региональный и заключительный. Победители и призёры получают право на поступление без вступительных испытаний.",
+                officialUrl: "https://vos.olimpiada.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/74/tasks/2024?class=10"
+            },
+            {
+                name: "Московская олимпиада школьников по физике",
+                description: "Олимпиада проводится для учащихся 7-11 классов. Включена в Перечень олимпиад Минобрнауки России. Даёт льготы при поступлении в ведущие вузы страны.",
+                officialUrl: "https://mosphys.olimpiada.ru/",
+                prepareUrl: "https://mosphys.olimpiada.ru/kruzhki"
+            },
+            {
+                name: "Олимпиада «Физтех» по физике",
+                description: "Организуется МФТИ. Проводится для учащихся 7-11 классов. Даёт льготы при поступлении в МФТИ и другие технические вузы. Состоит из двух этапов: отборочного и заключительного.",
+                officialUrl: "https://olymp.mipt.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/394/tasks"
+            },
+            {
+                name: "Олимпиада «Ломоносов» по физике",
+                description: "Многопрофильная олимпиада, проводимая МГУ им. М.В. Ломоносова. Физика — одно из профильных направлений. Даёт льготы при поступлении в МГУ и другие вузы.",
+                officialUrl: "https://olymp.msu.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/344/tasks/2023?class=10"
+            },
+            {
+                name: "Олимпиада «Росатом» по физике",
+                description: "Организуется НИЯУ МИФИ и Росатомом. Популярная олимпиада среди будущих инженеров-ядерщиков. Даёт преимущества при поступлении в вузы атомной отрасли.",
+                officialUrl: "https://olymp.mephi.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/412/tasks"
+            },
+            {
+                name: "Олимпиада «Курчатов» по физике",
+                description: "Проводится НИЦ «Курчатовский институт» и МФТИ. Направлена на выявление талантливых школьников в области физики. Даёт льготы при поступлении в технические вузы.",
+                officialUrl: "https://olimpiadakurchatov.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/388/tasks"
+            },
+            {
+                name: "Олимпиада «Надежда энергетики» по физике",
+                description: "Организуется Московским энергетическим институтом и другими энергетическими вузами. Направлена на выявление талантливых школьников для энергетической отрасли.",
+                officialUrl: "https://www.energy-hope.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/5332/tasks"
+            },
+            {
+                name: "Олимпиада «Газпром» по физике",
+                description: "Проводится для школьников, интересующихся нефтегазовой отраслью. Организуется ПАО «Газпром» и вузами-партнёрами. Даёт льготы при поступлении в профильные вузы.",
+                officialUrl: "https://olympiad.gazprom.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/5516/tasks"
+            },
+            {
+                name: "Олимпиада «Будущие исследователи — будущее науки» по физике",
+                description: "Олимпиада проводится для учащихся 7-11 классов. Включена в Перечень олимпиад Минобрнауки России. Проходит в несколько этапов в различных регионах России.",
+                officialUrl: "http://www.unn.ru/bibn/",
+                prepareUrl: "https://olimpiada.ru/activity/361/tasks"
+            },
+            {
+                name: "Олимпиада «Высшая проба» по физике",
+                description: "Организуется НИУ ВШЭ. Включает физику как одно из направлений. Популярна среди школьников, интересующихся междисциплинарными исследованиями. Даёт льготы при поступлении в ВШЭ и другие вузы.",
+                officialUrl: "https://olymp.hse.ru/mmo/",
+                prepareUrl: "https://olimpiada.ru/activity/161/tasks"
+            },
+            {
+                name: "Олимпиада «Шаг в будущее» по физике",
+                description: "Проводится МГТУ им. Н.Э. Баумана. Направлена на выявление талантливых школьников в области инженерных наук. Даёт льготы при поступлении в МГТУ и другие технические вузы.",
+                officialUrl: "https://olymp.bmstu.ru/",
+                prepareUrl: "https://olimpiada.ru/activity/169/tasks"
+            },
+            {
+                name: "Олимпиада «ОрМО» (Объединённая межвузовская олимпиада)",
+                description: "Организуется группой вузов для выявления талантливых школьников. Физика является одним из профильных направлений. Даёт льготы при поступлении в вузы-организаторы.",
+                officialUrl: "https://abiturient.tsu.ru/ru/content/школьные-олимпиады",
+                prepareUrl: "https://olimpiada.ru/activity/74/tasks"
+            },
+            {
+                name: "Олимпиада «Будущее Сибири» по физике",
+                description: "Проводится для школьников Сибирского федерального округа. Включена в Перечень олимпиад Минобрнауки России. Даёт льготы при поступлении в вузы Сибири.",
+                officialUrl: "https://olymp-sibir.nstu.ru",
+                prepareUrl: "https://olimpiada.ru/activity/368/tasks"
+            },
+            {
+                name: "Олимпиада «Бельчонок» по физике",
+                description: "Организуется Сибирским федеральным университетом. Проводится для учащихся 2-11 классов. Включает физику как одно из направлений. Даёт льготы при поступлении в СФУ и другие вузы.",
+                officialUrl: "https://dovuz.sfu-kras.ru/belchonok",
+                prepareUrl: "https://olimpiada.ru/activity/396/tasks"
+            },
+            
+        ];
+        
+        // Данные для научно-исследовательской деятельности
+        const researchEvents = [
+            {
+                name: "Всероссийская конференция «Шаг в будущее»",
+                description: "Крупнейшая научно-практическая конференция для школьников и студентов. Проводится ежегодно, включает секции по физике, техническим наукам, естествознанию. Победители получают рекомендации для поступления в ведущие технические вузы страны.",
+                officialUrl: "https://step-into-the-future.ru/"
+            },
+            {
+                name: "Международная научная конференция школьников «Колмогоровские чтения»",
+                description: "Конференция проводится для учащихся 9-11 классов, увлечённых научными исследованиями в области математики, физики, информатики и других естественных наук. Работы публикуются в сборнике конференции.",
+                officialUrl: "https://lomonosov-msu.ru/rus/event/8666/"
+            },
+            {
+                name: "Всероссийский конкурс научно-исследовательских работ им. Д.И. Менделеева",
+                description: "Конкурс проводится для учащихся 8-11 классов по естественно-научным дисциплинам. Физика является одним из основных направлений. Победители получают дипломы и дополнительные баллы при поступлении в вузы.",
+                officialUrl: "https://bmoc.ru/"
+            }
+        ];
+        
+        // Получаем элементы DOM
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const pages = document.querySelectorAll('.page');
+        const topicBtns = document.querySelectorAll('.topic-btn');
+        const frpContent = document.getElementById('frp-full-content');
+        const olympiadsContainer = document.getElementById('olympiads-container');
+        const researchContainer = document.getElementById('research-container');
+        const downloadFrpPdfBtn = document.getElementById('download-frp-pdf');
+        
+        // Инициализация
+        function init() {
+            // Загружаем контент ФРП
+            loadFrpContent();
+            
+            // Загружаем список олимпиад
+            loadOlympiads();
+            
+            // Загружаем список научных мероприятий
+            loadResearchEvents();
+            
+            // Обработчики навигации
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    
+                    // Обновляем активную кнопку
+                    navBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Обработчики для кнопок тем
+            topicBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // Если ссылка ведет на #, показываем alert
+                    if (this.getAttribute('href') === '#' || this.getAttribute('href') === '') {
+                        e.preventDefault();
+                        const topicTitle = this.closest('.subchapter').querySelector('.subchapter-title').textContent;
+                        const isTheory = this.textContent.includes('Теория');
+                        
+                        alert(`Открывается ${isTheory ? 'теория' : 'задачи'} по теме: ${topicTitle}\n\nВ реальном проекте здесь будет открываться HTML-презентация.`);
+                    }
+                    // Иначе - позволим браузеру перейти по ссылке (откроется в новой вкладке из-за target="_blank")
+                });
+            });
+            
+            // Обработчик для кнопки скачивания ФРП PDF
+            downloadFrpPdfBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Создаём текст для скачивания (в реальном проекте будет PDF файл)
+                const frpText = `ФЕДЕРАЛЬНАЯ РАБОЧАЯ ПРОГРАММА
+СРЕДНЕГО ОБЩЕГО ОБРАЗОВАНИЯ
+ФИЗИКА (углублённый уровень)
+для 10–11 классов образовательных организаций
+                
+Москва – 2023
+                
+Полный текст Федеральной рабочей программы по физике (углублённый уровень)
+для 10-11 классов. Документ включает пояснительную записку, содержание обучения,
+планируемые результаты освоения программы и тематическое планирование.
+                
+Общее количество часов: 340 (170 часов в 10 классе и 170 часов в 11 классе).`;
+                
+                // Создаём Blob с текстом и указываем MIME-тип для PDF
+                // В реальном проекте здесь должен быть настоящий PDF файл
+                const blob = new Blob([frpText], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'ФРП_Физика_10-11_углублённый_уровень.pdf';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                alert('Файл ФРП скачивается в формате PDF! В реальном проекте здесь будет настоящий PDF файл.');
+            });
+        }
+        
+        // Показать определённую страницу
+        function showPage(pageId) {
+            // Скрываем все страницы
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Показываем нужную страницу
+            document.getElementById(`${pageId}-page`).classList.add('active');
+        }
+        
+        // Загрузка контента ФРП (с добавлением 11 класса)
+        function loadFrpContent() {
+            // Полный текст ФРП (сокращённый вариант)
+            frpContent.innerHTML = `
+                <div class="frp-section">
+                    <h3>ФЕДЕРАЛЬНАЯ РАБОЧАЯ ПРОГРАММА СРЕДНЕГО ОБЩЕГО ОБРАЗОВАНИЯ</h3>
+                    <h4>ФИЗИКА (углублённый уровень)</h4>
+                    <p>(для 10–11 классов образовательных организаций)</p>
+                    <p><strong>Москва – 2023</strong></p>
+                </div>
+                
+                <div class="frp-section">
+                    <h3>СОДЕРЖАНИЕ</h3>
+                    <ol>
+                        <li>Пояснительная записка ...... 3</li>
+                        <li>Содержание обучения ...... 8
+                            <ul>
+                                <li>10 класс ...... 8</li>
+                                <li>11 класс ...... 19</li>
+                            </ul>
+                        </li>
+                        <li>Планируемые результаты освоения программы по физике на уровне среднего общего образования ...... 29
+                            <ul>
+                                <li>Личностные результаты ...... 29</li>
+                                <li>Метапредметные результаты ...... 30</li>
+                                <li>Предметные результаты ...... 33</li>
+                            </ul>
+                        </li>
+                        <li>Тематическое планирование ...... 39
+                            <ul>
+                                <li>10 класс ...... 39</li>
+                                <li>11 класс ...... 61</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="frp-section">
+                    <h3>11 КЛАСС (ПРОДОЛЖЕНИЕ)</h3>
+                    
+                    <h4>Раздел 4. Электродинамика (продолжение)</h4>
+                    
+                    <h4>Тема 4. Магнитное поле</h4>
+                    <p>Взаимодействие постоянных магнитов и проводников с током. Магнитное поле. Вектор магнитной индукции. Принцип суперпозиции магнитных полей. Линии магнитной индукции. Магнитное поле проводника с током (прямого проводника, катушки и кругового витка). Опыт Эрстеда. Сила Ампера, её направление и модуль. Сила Лоренца, её направление и модуль. Движение заряженной частицы в однородном магнитном поле. Работа силы Лоренца. Магнитное поле в веществе. Ферромагнетики, пара- и диамагнетики.</p>
+                    
+                    <h4>Тема 5. Электромагнитная индукция</h4>
+                    <p>Явление электромагнитной индукции. Поток вектора магнитной индукции. ЭДС индукции. Закон электромагнитной индукции Фарадея. Вихревое электрическое поле. Токи Фуко. ЭДС индукции в проводнике, движущемся в однородном магнитном поле. Правило Ленца. Индуктивность. Катушка индуктивности в цепи постоянного тока. Явление самоиндукции. ЭДС самоиндукции. Энергия магнитного поля катушки с током. Электромагнитное поле.</p>
+                    
+                    <h4>Раздел 5. Колебания и волны</h4>
+                    
+                    <h4>Тема 1. Механические колебания</h4>
+                    <p>Колебательная система. Свободные колебания. Гармонические колебания. Кинематическое и динамическое описание. Энергетическое описание (закон сохранения механической энергии). Вывод динамического описания гармонических колебаний из их энергетического и кинематического описания. Амплитуда и фаза колебаний. Связь амплитуды колебаний исходной величины с амплитудами колебаний её скорости и ускорения. Период и частота колебаний. Период малых свободных колебаний математического маятника. Период свободных колебаний пружинного маятника. Понятие о затухающих колебаниях. Вынужденные колебания. Резонанс. Резонансная кривая. Влияние затухания на вид резонансной кривой. Автоколебания.</p>
+                    
+                    <h4>Тема 2. Электромагнитные колебания</h4>
+                    <p>Колебательный контур. Свободные электромагнитные колебания в идеальном колебательном контуре. Формула Томсона. Связь амплитуды заряда конденсатора с амплитудой силы тока в колебательном контуре. Закон сохранения энергии в идеальном колебательном контуре. Затухающие электромагнитные колебания. Вынужденные электромагнитные колебания. Переменный ток. Мощность переменного тока. Амплитудное и действующее значение силы тока и напряжения при различной форме зависимости переменного тока от времени. Синусоидальный переменный ток. Резистор, конденсатор и катушка индуктивности в цепи синусоидального переменного тока. Резонанс токов. Резонанс напряжений. Идеальный трансформатор. Производство, передача и потребление электрической энергии. Экологические риски при производстве электроэнергии. Культура использования электроэнергии в повседневной жизни.</p>
+                    
+                    <h4>Тема 3. Механические и электромагнитные волны</h4>
+                    <p>Механические волны, условия их распространения. Поперечные и продольные волны. Период, скорость распространения и длина волны. Свойства механических волн: отражение, преломление, интерференция и дифракция. Звук. Скорость звука. Громкость звука. Высота тона. Тембр звука. Шумовое загрязнение окружающей среды. Электромагнитные волны. Условия излучения электромагнитных волн. Взаимная ориентация векторов в электромагнитной волне. Свойства электромагнитных волн: отражение, преломление, поляризация, интерференция и дифракция. Шкала электромагнитных волн. Применение электромагнитных волн в технике и быту. Принципы радиосвязи и телевидения. Радиолокация. Электромагнитное загрязнение окружающей среды.</p>
+                    
+                    <h4>Тема 4. Оптика</h4>
+                    <p>Прямолинейное распространение света в однородной среде. Луч света. Точечный источник света. Отражение света. Законы отражения света. Построение изображений в плоском зеркале. Сферические зеркалы. Преломление света. Законы преломления света. Абсолютный показатель преломления. Относительный показатель преломления. Постоянство частоты света и соотношение длин волн при переходе монохроматического света через границу раздела двух оптических сред. Ход лучей в призме. Дисперсия света. Сложный состав белого света. Цвет. Полное внутреннее отражение. Предельный угол полного внутреннего отражения. Собирающие и рассеивающие линзы. Тонкая линза. Фокусное расстояние и оптическая сила тонкой линзы. Зависимость фокусного расстояния тонкой сферической линзы от её геометрии и относительного показателя преломления. Формула тонкой линзы. Увеличение, даваемое линзой. Ход луча, прошедшего линзу под произвольным углом к её главной оптической оси. Построение изображений точки и отрезка прямой в собирающих и рассеивающих линзах и их системах. Оптические приборы. Разрешающая способность. Глаз как оптическая система. Пределы применимости геометрической оптики. Волновая оптика. Интерференция света. Когерентные источники. Условия наблюдения максимумов и минимумов в интерференционной картине от двух когерентных источников. Примеры классических интерференционных схем. Дифракция света. Дифракционная решётка. Условие наблюдения главных максимумов при падении монохроматического света на дифракционную решётку. Поляризация света.</p>
+                    
+                    <h4>Раздел 6. Основы специальной теории относительности</h4>
+                    <p>Границы применимости классической механики. Постулаты специальной теории относительности. Пространственно-временной интервал. Преобразования Лоренца. Условие причинности. Относительность одновременности. Замедление времени и сокращение длины. Энергия и импульс релятивистской частицы. Связь массы с энергией и импульсом релятивистской частицы. Энергия покоя.</p>
+                    
+                    <h4>Раздел 7. Квантовая физика</h4>
+                    
+                    <h4>Тема 1. Корпускулярно-волновой дуализм</h4>
+                    <p>Равновесное тепловое излучение (излучение абсолютно чёрного тела). Закон смещения Вина. Гипотеза Планка о квантах. Фотоны. Энергия и импульс фотона. Фотоэффект. Опыты А.Г. Столетова. Законы фотоэффекта. Уравнение Эйнштейна для фотоэффекта. «Красная граница» фотоэффекта. Давление света (в частности, давление света на абсолютно поглощающую и абсолютно отражающую поверхность). Опыты П.Н. Лебедева. Волновые свойства частиц. Волны де Бройля. Длина волны де Бройля и размеры области локализации движущейся частицы. Корпускулярно-волновой дуализм. Дифракция электронов на кристаллах. Специфика измерений в микромире. Соотношения неопределённостей Гейзенберга.</p>
+                    
+                    <h4>Тема 2. Физика атома</h4>
+                    <p>Опыты по исследованию строения атома. Планетарная модель атома Резерфорда. Постулаты Бора. Излучение и поглощение фотонов при переходе атома с одного уровня энергии на другой. Виды спектров. Спектр уровней энергии атома водорода. Спонтанное и вынужденное излучение света. Лазер.</p>
+                    
+                    <h4>Тема 3. Физика атомного ядра и элементарных частиц</h4>
+                    <p>Нуклонная модель ядра Гейзенберга-Иваненко. Заряд ядра. Массовое число ядра. Изотопы. Радиоактивность. Альфа-распад. Электронный и позитронный бета-распад. Гамма-излучение. Закон радиоактивного распада. Радиоактивные изотопы в природе. Свойства ионизирующего излучения. Влияние радиоактивности на живые организмы. Естественный фон излучения. Дозиметрия. Энергия связи нуклонов в ядре. Ядерные силы. Дефект массы ядра. Ядерные реакции. Деление и синтез ядер. Ядерные реакторы. Проблемы управляемого термоядерного синтеза. Экологические аспекты развития ядерной энергетики. Методы регистрации и исследования элементарных частиц. Фундаментальные взаимодействия. Барионы, мезоны и лептоны. Представление о Стандартной модели. Кварк1глюонная модель адронов. Физика за пределами Стандартной модели. Тёмная материя и тёмная энергия. Единство физической картины мира.</p>
+                    
+                    <h4>Раздел 8. Элементы астрономии и астрофизики</h4>
+                    <p>Этапы развития астрономии. Прикладное и мировоззренческое значение астрономии. Применимость законов физики для объяснения природы космических объектов. Методы астрономических исследований. Современные оптические телескопы, радиотелескопы, внеатмосферная астрономия. Вид звёздного неба. Созвездия, яркие звёзды, планеты, их видимое движение. Солнечная система. Солнце. Солнечная активность. Источник энергии Солнца и звёзд. Звёзды, их основные характеристики. Диаграмма «спектральный класс – светимость». Звёзды главной последовательности. Зависимость «масса – светимость» для звёзд главной последовательности. Внутреннее строение звёзд. Современные представления о происхождении и эволюции Солнца и звёзд. Этапы жизни звёзд. Млечный Путь – наша Галактика. Положение и движение Солнца в Галактике. Типы галактик. Радиогалактики и квазары. Чёрные дыры в ядрах галактик. Вселенная. Расширение Вселенной. Закон Хаббла. Разбегание галактик. Теория Большого взрыва. Реликтовое излучение. Масштабная структура Вселенной. Метагалактика. Нерешённые проблемы астрономии.</p>
+                    
+                    <h4>Физический практикум</h4>
+                    <p>Способы измерения физических величин с использованием аналоговых и цифровых измерительных приборов и компьютерных датчиковых систем. Абсолютные и относительные погрешности измерений физических величин. Оценка границ погрешностей. Проведение косвенных измерений, исследований зависимостей физических величин, проверка предложенных гипотез.</p>
+                    
+                    <h4>Обобщающее повторение</h4>
+                    <p>Обобщение и систематизация содержания разделов курса «Механика», «Молекулярная физика и термодинамика», «Электродинамика», «Колебания и волны», «Основы специальной теории относительности», «Квантовая физика», «Элементы астрономии и астрофизики». Роль физики и астрономии в экономической, технологической, социальной и этической сферах деятельности человека, роль и место физики и астрономии в современной научной картине мира, значение описательной, систематизирующей, объяснительной и прогностической функций физической теории, роль физической теории в формировании представлений о физической картине мира, место физической картины мира в общем ряду современных естественно-научных представлений о природе.</p>
+                </div>
+            `;
+        }
+        
+        // Загрузка списка олимпиад
+        function loadOlympiads() {
+            olympiadsContainer.innerHTML = '';
+            
+            olympiads.forEach(olympiad => {
+                const card = document.createElement('div');
+                card.className = 'olympiad-card';
+                
+                card.innerHTML = `
+                    <h3>${olympiad.name}</h3>
+                    <p>${olympiad.description}</p>
+                    <div class="olympiad-links">
+                        <a href="${olympiad.officialUrl}" target="_blank" class="olympiad-link"><i class="fas fa-external-link-alt"></i> Официальный сайт</a>
+                        <a href="${olympiad.prepareUrl}" target="_blank" class="olympiad-link"><i class="fas fa-graduation-cap"></i> Подготовка на Олимпиада.ру</a>
+                    </div>
+                `;
+                
+                olympiadsContainer.appendChild(card);
+            });
+        }
+        
+        // Загрузка списка научных мероприятий
+        function loadResearchEvents() {
+            researchContainer.innerHTML = '';
+            
+            researchEvents.forEach(event => {
+                const card = document.createElement('div');
+                card.className = 'research-card';
+                
+                card.innerHTML = `
+                    <h3>${event.name}</h3>
+                    <p>${event.description}</p>
+                    <div class="research-links">
+                        <a href="${event.officialUrl}" target="_blank" class="research-link"><i class="fas fa-external-link-alt"></i> Официальный сайт</a>
+                    </div>
+                `;
+                
+                researchContainer.appendChild(card);
+            });
+        }
+        
+        // Запуск инициализации при загрузке страницы
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
